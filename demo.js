@@ -3,6 +3,10 @@ var maxErros = 5;
 var erros = 0;
 var letras = [];
 
+function existe(onde, oque) {
+    
+}
+
 function tentar(letra) {
     if (erros < maxErros) {
         if (palavra.indexOf(letra) == -1) {
@@ -29,4 +33,4 @@ function tentar(letra) {
     } else {
         return 'O jogo ja foi encerrado! Você tinha perdido!'
     }
-};
+}
