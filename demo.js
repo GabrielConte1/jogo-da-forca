@@ -3,10 +3,14 @@ var maxErros = 5;
 var erros = 0;
 var letras = [];
 
+function existe(onde, oque) {
+    
+}
+
 function tentar(letra) {
     if (erros < maxErros) {
-        if (palavra.indexOf(letra) == -1) {
-            erros++;
+        if (!palavra.includes(letra)){
+            erros++;}       
             if (erros == maxErros) {
                 return 'Suas vidas acabaram';
             } else {
@@ -17,7 +21,7 @@ function tentar(letra) {
             var revelacao = [];
             // buscar as letras informadas na palavra
             for (var i=0; i<palavra.length; i++) {
-                if (letras.indexOf(palavra[i]) == -1) {
+                if (!letras     .includes(palavra[i]))   {
                     revelacao.push('_');
                 } else {
                     revelacao.push(palavra[i]);
@@ -29,4 +33,4 @@ function tentar(letra) {
     } else {
         return 'O jogo ja foi encerrado! Você tinha perdido!'
     }
-};
+}
