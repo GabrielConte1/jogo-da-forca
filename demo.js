@@ -10,7 +10,7 @@ function existe(onde, oque) {
 function tentar(letra) {
     if (erros < maxErros) {
         if (!palavra.includes(letra)){
-            erros++;}       
+            erros++;       
             if (erros == maxErros) {
                 return 'Suas vidas acabaram';
             } else {
@@ -21,7 +21,7 @@ function tentar(letra) {
             var revelacao = [];
             // buscar as letras informadas na palavra
             for (var i=0; i<palavra.length; i++) {
-                if (!letras     .includes(palavra[i]))   {
+                if (!letras.includes(palavra[i]))   {
                     revelacao.push('_');
                 } else {
                     revelacao.push(palavra[i]);
