@@ -1,36 +1,45 @@
-var palavra = "banana";
+var palavra, erros, letras;
 var maxErros = 5;
-var erros = 0;
-var letras = [];
 
 function existe(onde, oque) {
-    
+  for (var i = 0; i < onde.length; i++) {
+    if (onde[i] == oque) {
+      return true;
+    }
+  }
+}
+
+function iniciar(segredo) {
+  palavra = segredo;
+  erros = 0;
+  letras = [];
+  console.clear();
 }
 
 function tentar(letra) {
-    if (erros < maxErros) {
-        if (!palavra.includes(letra)){
-            erros++;       
-            if (erros == maxErros) {
-                return 'Suas vidas acabaram';
-            } else {
-                return 'Continue tentando';
-            }
+  if (erros < maxErros) {
+    if (existe(palavra, letra)) {
+      letras.push(letra);
+      var revelacao = [];
+      // buscar as letras informadas na palavra
+      for (var i = 0; i < palavra.length; i++) {
+        if (existe(letras, palavra[i])) {
+          revelacao.push(palavra[i]);
         } else {
-            letras.push(letra);
-            var revelacao = [];
-            // buscar as letras informadas na palavra
-            for (var i=0; i<palavra.length; i++) {
-                if (!letras.includes(palavra[i]))   {
-                    revelacao.push('_');
-                } else {
-                    revelacao.push(palavra[i]);
-                }
-            }
-            // revelar as letras corretas na palavra
-            return revelacao;
+          revelacao.push("_");
         }
+      }
+      // revelar as letras corretas na palavra
+      return revelacao;
     } else {
-        return 'O jogo ja foi encerrado! Você tinha perdido!'
+      erros++;
+      if (erros == maxErros) {
+        return "Suas vidas acabaram";
+      } else {
+        return "Continue tentando";
+      }
     }
+  } else {
+    return "O jogo ja foi encerrado! Você tinha perdido!";
+  }
 }
