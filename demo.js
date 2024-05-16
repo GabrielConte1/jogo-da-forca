@@ -33,8 +33,4 @@ function tentar(letra) {
     } else {
         return 'O jogo ja foi encerrado! Você tinha perdido!'
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin
